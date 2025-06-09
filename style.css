@@ -228,23 +228,23 @@ footer {
 .cajas-contador {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .caja {
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
-  min-width: 60px;
+  min-width: 5px;
 }
 
 .caja span {
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: block;
   font-weight: bold;
 }
 
 .caja p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: .8rem;
 }

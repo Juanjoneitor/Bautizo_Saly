@@ -16,8 +16,20 @@
       <h1>El Bautizo de</h1>
       <h2>Elena Salome<br>Llamas Mora</h2>
       <p class="fecha">26 de julio, 2025</p>
+      
     </div>
   </section>
+
+<div class="contador" id="contador">
+  <h1>¡Faltan!</h1>
+  <div class="cajas-contador">
+    <div class="caja"><span id="dias">00</span><p>días</p></div>
+    <div class="caja"><span id="horas">00</span><p>horas</p></div>
+    <div class="caja"><span id="minutos">00</span><p>min</p></div>
+    <div class="caja"><span id="segundos">00</span><p>seg</p></div>
+  </div>
+</div>
+
 
   <!-- Invitación -->
   <section class="invitacion" data-aos="fade-up">
@@ -61,12 +73,15 @@
 <section class="info" data-aos="fade-up" data-aos-delay="500">
   <h3>¿Cómo llegar a la ceremonia?</h3>
   <p><strong>Templo de la Divina Providencia</strong><br>
-  Av. Arco del Triunfo 1530, Arcos de Zapopan, Jalisco</p>
-  <div style="max-width: 100%; overflow: hidden;">
+  Av. Arco del Triunfo 1530, Arcos de Zapopan, 45130 Zapopan, Jal.</p>
+  <div style="max-width: 100%; overflow: hidden; border-radius: 8px;">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.6624709326916!2d-103.4211601!3d20.7019398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ac529b218155%3A0x5cfc5c4db0a84579!2sTemplo%20de%20la%20Divina%20Providencia!5e0!3m2!1ses-419!2smx!4v1717949838430!5m2!1ses-419!2smx"
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.663259229179!2d-103.421154!3d20.7019081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ac529b218155%3A0x5cfc5c4db0a84579!2sTemplo%20de%20la%20Divina%20Providencia!5e0!3m2!1ses-419!2smx!4v1717954872520!5m2!1ses-419!2smx"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </div>
+  <p><a href="https://www.google.com/maps/place/Av.+Arco+del+Triunfo+1530,+Arcos+de+Zapopan,+45130+Zapopan,+Jal./@20.7019081,-103.421154,17z"
+        target="_blank" rel="noopener noreferrer">Ver ubicación completa en Google Maps</a></p>
 </section>
 
 <!-- ¿Cómo llegar? - Recepción -->
@@ -180,4 +195,40 @@
 
 
 </body>
+
+<script>
+  function iniciarContador() {
+    const evento = new Date("2025-07-26T11:00:00").getTime(); // Fecha del evento
+    const diasEl = document.getElementById("dias");
+    const horasEl = document.getElementById("horas");
+    const minutosEl = document.getElementById("minutos");
+    const segundosEl = document.getElementById("segundos");
+
+    setInterval(() => {
+      const ahora = new Date().getTime();
+      const diferencia = evento - ahora;
+
+      if (diferencia <= 0) {
+        diasEl.innerText = "00";
+        horasEl.innerText = "00";
+        minutosEl.innerText = "00";
+        segundosEl.innerText = "00";
+        return; // Detener cuando llegue el evento
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      diasEl.innerText = dias.toString().padStart(2, '0');
+      horasEl.innerText = horas.toString().padStart(2, '0');
+      minutosEl.innerText = minutos.toString().padStart(2, '0');
+      segundosEl.innerText = segundos.toString().padStart(2, '0');
+    }, 1000);
+  }
+
+  iniciarContador();
+</script>
+
 </html>

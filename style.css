@@ -212,3 +212,39 @@ footer {
 .cerrar:hover {
   color: #ffdddd;
 }
+
+.contador {
+  margin-top: 15px;
+  text-align: center;
+  color: #050505;
+}
+
+.contador h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #181717;
+}
+
+.cajas-contador {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.caja {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 60px;
+}
+
+.caja span {
+  font-size: 1.5rem;
+  display: block;
+  font-weight: bold;
+}
+
+.caja p {
+  margin: 0;
+  font-size: 0.9rem;
+}
